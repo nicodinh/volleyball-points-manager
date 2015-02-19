@@ -89,42 +89,41 @@ class Application(tk.Frame):
         global attaque
         attaque +=  points
         self.lbl_attaquePtsTotal = tk.Label(self, text = attaque).grid(row = 1, column = 5)
+        attaqueList.append(points)
         print(attaque)
 
     def updateDefense(self, points):
         global defense
         defense +=  points
         self.lbl_defensePtsTotal = tk.Label(self, text = defense).grid(row = 2, column = 5)
+        defenseList.append(points)
         print(defense)
         
     def updateService(self, points):
         global service
         service +=  points
         self.lbl_servicePtsTotal = tk.Label(self, text = service).grid(row = 3, column = 5)
+        serviceList.append(points)
         print(service)
         
     def updatePasse(self, points):
         global passe
         passe +=  points
         self.lbl_passePtsTotal = tk.Label(self, text = passe).grid(row = 4, column = 5)
+        passeList.append(points)
         print(passe)
         
     def updateContre(self, points):
         global contre
         contre +=  points
         self.lbl_contrePtsTotal = tk.Label(self, text = contre).grid(row = 5, column = 5)
+        contreList.append(points)
         print(contre)
 
     
 root = tk.Tk()
 app = Application(master=root)
 app.mainloop()
-
-#instanceVolley = Volleyball()
-#setattr(instanceVolley, 'attaque', getattr(instanceVolley, 'attaque') + 1)
-#setattr(instanceVolley, 'attaque', getattr(instanceVolley, 'attaque') + 1)
-#setattr(instanceVolley, 'attaque', getattr(instanceVolley, 'attaque') + 1)
-#print ("Total %d" % getattr(instanceVolley, 'attaque'))
 
 os.system("pause")
 
