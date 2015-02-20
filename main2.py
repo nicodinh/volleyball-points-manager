@@ -81,51 +81,70 @@ class Application(tk.Frame):
                 
         # coefficient attaque defense passe precedente 
         v = tk.DoubleVar()
+        v.set(1)
         self.lbl_coefPasse = tk.Label(self, text = "Coef Passe\nPrécédente").grid(row = 7, column = 0) 
-        self.rbtn_coefPasse1 = tk.Radiobutton(self, text = "Normale x1", value = 1, variable = v, command = lambda: self.printValueRadio(v.get())).grid(row = 7, column = 1) 
+        self.rbtn_coefPasse1 = tk.Radiobutton(self, text = "Normale x1", value = 1, variable = v, command = lambda: self.printValueRadio(v.get())).grid(row = 7, column = 1)
         self.rbtn_coefPasse2 = tk.Radiobutton(self, text = "Moyen x1.3", value = 1.3, variable = v, command = lambda: self.printValueRadio(v.get())).grid(row = 7, column = 2) 
         self.rbtn_coefPasse3 = tk.Radiobutton(self, text = "Difficile x2", value = 2, variable = v, command = lambda: self.printValueRadio(v.get())).grid(row = 7, column = 3) 
     
     def printValueRadio(self, value):
         global coefPasse
         coefPasse = value        
-        print(value)
-        print(coefPasse)
         
     def updateAttaque(self, points):
         global attaque
         attaque +=  points * coefPasse
-        self.lbl_attaquePtsTotal = tk.Label(self, text = format(attaque, '.2f')).grid(row = 1, column = 5)
-        attaqueList.append(points)
-        print(attaque)
+        self.lbl_attaquePtsTotal = tk.Label(self, text = format(attaque, '.1f')).grid(row = 1, column = 5)
+        attaqueList.append(format(points * coefPasse, '.1f'))
+        self.updateAttaqueList()
 
     def updateDefense(self, points):
         global defense
         defense +=  points * coefPasse
-        self.lbl_defensePtsTotal = tk.Label(self, text = format(defense, '.2f')).grid(row = 2, column = 5)
-        defenseList.append(points)
-        print(defense)
+        self.lbl_defensePtsTotal = tk.Label(self, text = format(defense, '.1f')).grid(row = 2, column = 5)
+        defenseList.append(format(points * coefPasse, '.1f'))
+        self.updateDefenseList()
         
     def updateService(self, points):
         global service
         service +=  points
         self.lbl_servicePtsTotal = tk.Label(self, text = service).grid(row = 3, column = 5)
         serviceList.append(points)
-        print(service)
+        self.updateServiceList()
         
     def updatePasse(self, points):
         global passe
         passe +=  points * coefPasse
-        self.lbl_passePtsTotal = tk.Label(self, text = format(passe, '.2f')).grid(row = 4, column = 5)
-        passeList.append(points)
-        print(passe)
+        self.lbl_passePtsTotal = tk.Label(self, text = format(passe, '.1f')).grid(row = 4, column = 5)
+        passeList.append(format(points * coefPasse, '.1f'))
+        self.updatePasseList()
         
     def updateContre(self, points):
         global contre
         contre +=  points
         self.lbl_contrePtsTotal = tk.Label(self, text = contre).grid(row = 5, column = 5)
         contreList.append(points)
-        print(contre)
+        self.updateContreList()
+        
+    def updateAttaqueList(self):
+        global attaqueList
+        print(attaqueList)   
+        
+    def updateDefenseList(self):
+        global defenseList
+        print(defenseList)    
+        
+    def updateServiceList(self):
+        global serviceList
+        print(serviceList)    
+    
+    def updatePasseList(self):
+        global passeList
+        print(passeList)
+        
+    def updateContreList(self):
+        global contreList
+        print(contreList)
 
     
 root = tk.Tk()
