@@ -128,22 +128,77 @@ class Application(tk.Frame):
         
     def updateAttaqueList(self):
         global attaqueList
+        text = '['
+        for index, item in enumerate(attaqueList):
+            text += item
+            if len(attaqueList) == 1:
+                text += ']'
+                break
+            if index == len(attaqueList) - 1:    
+                text += ']'
+            elif index < len(attaqueList):
+                text += ' ,'    
+        self.lbl_attaquePtsCumu = tk.Label(self, text = text).grid(row = 1, column = 6)
         print(attaqueList)   
         
     def updateDefenseList(self):
         global defenseList
+        text = '['
+        for index, item in enumerate(defenseList):
+            text += item
+            if len(defenseList) == 1:
+                text += ']'
+                break
+            if index == len(defenseList) - 1:    
+                text += ']'
+            elif index < len(defenseList):
+                text += ' ,'    
+        self.lbl_defensePtsCumu = tk.Label(self, text = text).grid(row = 2, column = 6)        
         print(defenseList)    
         
     def updateServiceList(self):
         global serviceList
+        text = '['
+        for index, item in enumerate(serviceList):
+            text += str(item)
+            if len(serviceList) == 1:
+                text += ']'
+                break
+            if index == len(serviceList) - 1:    
+                text += ']'
+            elif index < len(serviceList):
+                text += ' ,' 
+        self.lbl_servicePtsCumu = tk.Label(self, text = text).grid(row = 3, column = 6)        
         print(serviceList)    
     
     def updatePasseList(self):
         global passeList
+        text = '['
+        for index, item in enumerate(passeList):
+            text += item
+            if len(passeList) == 1:
+                text += ']'
+                break
+            if index == len(passeList) - 1:    
+                text += ']'
+            elif index < len(passeList):
+                text += ' ,'    
+        self.lbl_passePtsCumu = tk.Label(self, text = text).grid(row = 4, column = 6)        
         print(passeList)
         
     def updateContreList(self):
         global contreList
+        text = '['
+        for index, item in enumerate(contreList):
+            text += str(item)
+            if len(contreList) == 1:
+                text += ']'
+                break
+            if index == len(contreList) - 1:    
+                text += ']'
+            elif index < len(contreList):
+                text += ' ,' 
+        self.lbl_contrePtsCumu = tk.Label(self, text = text).grid(row = 5, column = 6)         
         print(contreList)
 
     
