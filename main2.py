@@ -84,7 +84,7 @@ class Application(tk.Frame):
         v.set(1)
         self.lbl_coefPasse = tk.Label(self, text = "Coef Passe\nPrécédente").grid(row = 7, column = 0) 
         self.rbtn_coefPasse1 = tk.Radiobutton(self, text = "Normale x1", value = 1, variable = v, command = lambda: self.printValueRadio(v.get())).grid(row = 7, column = 1)
-        self.rbtn_coefPasse2 = tk.Radiobutton(self, text = "Moyen x1.3", value = 1.3, variable = v, command = lambda: self.printValueRadio(v.get())).grid(row = 7, column = 2) 
+        self.rbtn_coefPasse2 = tk.Radiobutton(self, text = "Moyen x1.5", value = 1.5, variable = v, command = lambda: self.printValueRadio(v.get())).grid(row = 7, column = 2) 
         self.rbtn_coefPasse3 = tk.Radiobutton(self, text = "Difficile x2", value = 2, variable = v, command = lambda: self.printValueRadio(v.get())).grid(row = 7, column = 3) 
     
     def printValueRadio(self, value):
@@ -138,7 +138,7 @@ class Application(tk.Frame):
             elif index < len(attaqueList):
                 text += ' ,'    
         self.lbl_attaquePtsCumu = tk.Label(self, text = text).grid(row = 1, column = 6)
-        print(attaqueList)   
+        print("Attaque %s" % attaqueList)      
         
     def updateDefenseList(self):
         text = '['
@@ -152,7 +152,7 @@ class Application(tk.Frame):
             elif index < len(defenseList):
                 text += ' ,'    
         self.lbl_defensePtsCumu = tk.Label(self, text = text).grid(row = 2, column = 6)        
-        print(defenseList)    
+        print("Defense %s" % defenseList)   
         
     def updateServiceList(self):
         text = '['
@@ -166,7 +166,7 @@ class Application(tk.Frame):
             elif index < len(serviceList):
                 text += ' ,' 
         self.lbl_servicePtsCumu = tk.Label(self, text = text).grid(row = 3, column = 6)        
-        print(serviceList)    
+        print("Service %s" % serviceList)     
     
     def updatePasseList(self):
         text = '['
@@ -180,7 +180,7 @@ class Application(tk.Frame):
             elif index < len(passeList):
                 text += ' ,'    
         self.lbl_passePtsCumu = tk.Label(self, text = text).grid(row = 4, column = 6)        
-        print(passeList)
+        print("Passe %s" % passeList) 
         
     def updateContreList(self):
         text = '['
@@ -194,7 +194,7 @@ class Application(tk.Frame):
             elif index < len(contreList):
                 text += ' ,' 
         self.lbl_contrePtsCumu = tk.Label(self, text = text).grid(row = 5, column = 6)         
-        print(contreList)
+        print("Contre %s" % contreList) 
 
     
 root = tk.Tk()
