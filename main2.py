@@ -127,7 +127,6 @@ class Application(tk.Frame):
         self.updateContreList()
         
     def updateAttaqueList(self):
-        global attaqueList
         text = '['
         for index, item in enumerate(attaqueList):
             text += item
@@ -142,7 +141,6 @@ class Application(tk.Frame):
         print(attaqueList)   
         
     def updateDefenseList(self):
-        global defenseList
         text = '['
         for index, item in enumerate(defenseList):
             text += item
@@ -157,7 +155,6 @@ class Application(tk.Frame):
         print(defenseList)    
         
     def updateServiceList(self):
-        global serviceList
         text = '['
         for index, item in enumerate(serviceList):
             text += str(item)
@@ -172,7 +169,6 @@ class Application(tk.Frame):
         print(serviceList)    
     
     def updatePasseList(self):
-        global passeList
         text = '['
         for index, item in enumerate(passeList):
             text += item
@@ -187,7 +183,6 @@ class Application(tk.Frame):
         print(passeList)
         
     def updateContreList(self):
-        global contreList
         text = '['
         for index, item in enumerate(contreList):
             text += str(item)
