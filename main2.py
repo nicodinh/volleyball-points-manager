@@ -1,5 +1,6 @@
 import os
 import tkinter as tk
+
    
 attaque = 0
 defense = 0
@@ -17,8 +18,10 @@ class Application(tk.Frame):
     
     def __init__(self, master=None):
         tk.Frame.__init__(self, master)
+        master.title("Volley-ball points manager")
         self.pack()
         self.createWidgets()
+        self.createCanvas()
 
     def createWidgets(self):          
         
@@ -86,6 +89,26 @@ class Application(tk.Frame):
         self.rbtn_coefPasse1 = tk.Radiobutton(self, text = "Normale x1", value = 1, variable = v, command = lambda: self.printValueRadio(v.get())).grid(row = 7, column = 1)
         self.rbtn_coefPasse2 = tk.Radiobutton(self, text = "Moyen x1.5", value = 1.5, variable = v, command = lambda: self.printValueRadio(v.get())).grid(row = 7, column = 2) 
         self.rbtn_coefPasse3 = tk.Radiobutton(self, text = "Difficile x2", value = 2, variable = v, command = lambda: self.printValueRadio(v.get())).grid(row = 7, column = 3) 
+        
+        # saut ? peut etre un meilleur moyen
+        self.lbl_saut2 = tk.Label(self, text = " ").grid(row = 8, column = 0) 
+    
+    def createCanvas(self):
+        canvas = tk.Canvas(root, width = 200, height = 200, bg = "white", highlightthickness = 0, border = 0)
+        canvas.pack()
+        # attaque en haut x49 y0 | x49 y99
+        canvas.create_line(49, 0, 49, 99)  
+        # contre haut gauche
+        canvas.create_line(0, 24, 99, 74)       
+		# defense haut droit
+        canvas.create_line(99, 24, 0, 74)
+		# passe bas gauche
+        canvas.create_line(74, 0, 24, 99)
+		# passe bas gauche
+        canvas.create_line(24, 0, 74, 99)
+        
+    def updateCanvas(self):
+        print(attaque)
     
     def printValueRadio(self, value):
         global coefPasse
@@ -195,6 +218,7 @@ class Application(tk.Frame):
                 text += ' ,' 
         self.lbl_contrePtsCumu = tk.Label(self, text = text).grid(row = 5, column = 6)         
         print("Contre %s" % contreList) 
+
 
     
 root = tk.Tk()
