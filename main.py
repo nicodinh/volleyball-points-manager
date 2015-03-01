@@ -1,18 +1,42 @@
 import os
 import tkinter as tk
+import pygal
 
-   
 attaque = 0
 defense = 0
 service = 0
 passe = 0
 contre = 0
-coefPasse = 1
+#coefPasse = 1
 attaqueList = []
 defenseList = []
 serviceList = []
 passeList = []
 contreList = []
+        
+class Volleyball():
+
+    test2 = "tata"
+    
+    def __init__(self):
+        self.attaque = 0
+        self.defense = 0
+        self.service = 0
+        self.passe = 0
+        self.contre = 0
+        self.coefPasse = 1
+        self.attaqueList = []
+        self.defenseList = []
+        self.serviceList = []
+        self.passeList = []
+        self.contreList = []
+        self.test = "toto"
+        
+        
+# http://www.python-course.eu/python3_multiple_inheritance.php
+# http://stackoverflow.com/questions/3277367/how-does-pythons-super-work-with-multiple-inheritance
+# https://docs.python.org/3.1/tutorial/classes.html
+# http://www.python-course.eu/python3_inheritance_example.php
     
 class Application(tk.Frame):
     
@@ -21,8 +45,12 @@ class Application(tk.Frame):
         master.title("Volley-ball points manager")
         self.pack()
         self.createWidgets()
-        self.createCanvas()
-
+        #self.createCanvas()
+        #super(Application, self).__init__()
+        Volleyball().__init__()
+        print(Volleyball().test)
+        print(Volleyball.test2)
+        
     def createWidgets(self):          
         
         # premiere ligne
@@ -100,25 +128,28 @@ class Application(tk.Frame):
         canvas.create_line(49, 0, 49, 99)  
         # contre haut gauche
         canvas.create_line(0, 24, 99, 74)       
-		# defense haut droit
+        # defense haut droit
         canvas.create_line(99, 24, 0, 74)
-		# passe bas gauche
+        # passe bas gauche
         canvas.create_line(74, 0, 24, 99)
-		# passe bas gauche
+        # passe bas gauche
         canvas.create_line(24, 0, 74, 99)
         
     def updateCanvas(self):
         print(attaque)
     
     def printValueRadio(self, value):
-        global coefPasse
-        coefPasse = value        
+        #global coefPasse
+        #global coefPasse
+        #coefPasse = value        
+        Volleyball().coefPasse = value
+        print (Volleyball().coefPasse)
         
     def updateAttaque(self, points):
         global attaque
-        attaque +=  points * coefPasse
+        attaque +=  points * Volleyball().coefPasse
         self.lbl_attaquePtsTotal = tk.Label(self, text = format(attaque, '.1f')).grid(row = 1, column = 5)
-        attaqueList.append(format(points * coefPasse, '.1f'))
+        attaqueList.append(format(points * Volleyball().coefPasse, '.1f'))
         self.updateAttaqueList()
 
     def updateDefense(self, points):
